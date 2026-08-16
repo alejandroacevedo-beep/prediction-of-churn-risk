@@ -1,0 +1,165 @@
+# Requirements for Spec-Driven Development Platform
+
+## Core Dependencies
+
+### Python Version
+- Python 3.9+
+
+### Testing Framework
+```
+pytest>=7.0.0
+pytest-cov>=4.0.0
+```
+
+### Existing Platform Dependencies
+(These are already in use by customer_health_platform.py)
+```
+anthropic>=0.7.0  # For Claude AI integration
+```
+
+### Type Checking (Optional)
+```
+mypy>=1.0.0
+```
+
+## Installation
+
+### Install test dependencies
+```bash
+pip install pytest pytest-cov
+```
+
+### Install optional dependencies for enhanced development
+```bash
+pip install mypy black flake8
+```
+
+## Running Tests
+
+### Basic test run
+```bash
+pytest tests/test_specifications.py -v
+```
+
+### With coverage report
+```bash
+pytest tests/test_specifications.py --cov=customer_health_platform --cov=specs
+```
+
+### Generate HTML coverage report
+```bash
+pytest tests/test_specifications.py --cov=customer_health_platform --cov-report=html
+```
+
+### Run specific test class
+```bash
+pytest tests/test_specifications.py::TestContactSpecification -v
+```
+
+### Run with verbose output
+```bash
+pytest tests/test_specifications.py -vv --tb=short
+```
+
+## Validation Scripts
+
+### Run quick start examples
+```bash
+python QUICK_START.py
+```
+
+### Import and use validator directly
+```python
+from specs.validator import SpecRunner
+runner = SpecRunner()
+# Use runner...
+```
+
+## Development Tools
+
+### Code formatting (optional)
+```bash
+black customer_health_platform.py specs/ tests/
+```
+
+### Linting (optional)
+```bash
+flake8 customer_health_platform.py specs/ tests/
+```
+
+### Type checking (optional)
+```bash
+mypy customer_health_platform.py specs/
+```
+
+## Environment Setup
+
+### Create virtual environment
+```bash
+python -m venv .venv
+```
+
+### Activate virtual environment
+#### Windows
+```bash
+.venv\Scripts\activate
+```
+
+#### Linux/Mac
+```bash
+source .venv/bin/activate
+```
+
+### Install all dependencies
+```bash
+pip install -r requirements.txt
+```
+
+## Troubleshooting
+
+### ImportError when running tests
+Ensure the specs and tests directories are in Python path:
+```bash
+export PYTHONPATH="${PYTHONPATH}:$(pwd)"
+```
+
+### pytest not found
+Install pytest:
+```bash
+pip install pytest
+```
+
+### Module not found errors
+Make sure you're in the correct directory:
+```bash
+cd c:\Users\Ijdga\OneDrive\Actual\ work\ systems
+```
+
+## Recommended IDEs
+
+### Visual Studio Code
+- Install Python extension
+- Install Pylance
+- Install pytest extension
+
+### PyCharm
+- Professional or Community Edition
+- Built-in pytest support
+- Specification documentation available
+
+## Documentation
+
+- `SPEC_DRIVEN_DEVELOPMENT.md` - Complete development guide
+- `TRANSFORMATION_SUMMARY.md` - What was created
+- `QUICK_START.py` - Runnable examples
+- `specs/data_models_spec.py` - Data model specifications
+- `specs/scoring_engine_spec.py` - Scoring engine specifications
+- `specs/interfaces.py` - Protocol definitions
+
+## Next Steps
+
+1. Install dependencies: `pip install pytest pytest-cov`
+2. Run tests: `pytest tests/test_specifications.py -v`
+3. Run examples: `python QUICK_START.py`
+4. Read guide: Open `SPEC_DRIVEN_DEVELOPMENT.md`
+5. Review specs: Check `specs/` directory
